@@ -5,7 +5,6 @@ import json
 import os
 import plotly
 
-st.write("Plotly version:", plotly.__version__)
 # Config
 vanna_api_key = st.secrets["vanna_api_key"]
 vanna_model_name = st.secrets["vanna_model_name"]
