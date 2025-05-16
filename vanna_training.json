@@ -1,0 +1,24 @@
+{
+  "question_sql_pairs": [
+    {
+      "question": "Tell me all the districts in afghanistan",
+      "sql": "SELECT DISTINCT District FROM city WHERE CountryCode = (SELECT Code FROM country WHERE Name = 'Afghanistan');"
+    },
+    {
+      "question": "Top 3 countries with maximum GNP from Central Africa region",
+      "sql": "SELECT Name, GNP FROM country WHERE Region = 'Central Africa' ORDER BY GNP DESC LIMIT 3;"
+    },
+    {
+      "question": "Tell me all the districts in australia",
+      "sql": "SELECT DISTINCT District FROM city WHERE CountryCode = (SELECT Code FROM country WHERE Name = 'Australia');"
+    },
+    {
+      "question": "Tell me all the languages being spoken in belgium",
+      "sql": "SELECT Language FROM language WHERE CountryCode = (SELECT Code FROM country WHERE Name = 'Belgium');"
+    },
+    {
+      "question": "Tell me all the districts in Netherlands",
+      "sql": "SELECT DISTINCT District FROM city WHERE CountryCode = (SELECT Code FROM country WHERE Name = 'Netherlands');"
+    }
+  ]
+}
