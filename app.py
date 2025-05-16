@@ -11,7 +11,7 @@ training_file = "vanna_training.json"
 db_file = "World_Analysis.db"
 
 # Load Vanna
-Import Vanna
+import Vanna
 from vanna.remote import VannaDefault
 
 # Initialize Vanna once
