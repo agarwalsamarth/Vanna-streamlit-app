@@ -7,8 +7,8 @@ import json
 import os
 
 # Config
-vanna_api_key='ff0f0fdd4d5e4ff6ba12a9d3473df087'
-vanna_model_name='world_model'
+vanna_api_key = st.secrets["vanna_api_key"]
+vanna_model_name = st.secrets["vanna_model_name"]
 training_file = "vanna_training.json"
 db_file = "World_Analysis.db"
 
