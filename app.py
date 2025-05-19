@@ -50,17 +50,21 @@ if st.button("Submit") and user_question:
             st.code(sql, language="sql")
             st.dataframe(df)
 
-            fig = None
-            try:
-                exec_globals = {"df": df}
-                exec(plot_code, exec_globals)
-                fig = exec_globals.get("fig", None)
-                if fig:
-                    st.plotly_chart(fig, key="main_plot")
-                else:
-                    st.warning("⚠️ No figure was generated.")
-            except Exception as e:
-                st.error(f"❌ Error generating plot: {e}")
+            if not plot_code.strip():
+                st.warning("⚠️ No plot code was generated.")
+                fig = None
+            else:
+                try:
+                    exec_globals = {"df": df}
+                    exec(plot_code, exec_globals)
+                    fig = exec_globals.get("fig", None)
+                    if fig:
+                        st.plotly_chart(fig, key="main_plot")
+                    else:
+                        st.warning("⚠️ Plotly code ran but did not produce a figure.")
+                except Exception as e:
+                    st.error(f"❌ Error generating plot: {e}")
+                    st.code(plot_code, language="python")
 
             st.session_state.current_question = user_question
             st.session_state.current_sql = sql
